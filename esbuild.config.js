@@ -1,7 +1,8 @@
 import { build } from "esbuild";
+import { nodeExternalsPlugin } from "esbuild-node-externals";
 
 build({
-  entryPoints: ["./src/index.ts"],
+  entryPoints: ["./src/app.tsx"],
   bundle: true,
   outfile: "./dist/bundle.js",
   minify: true,
@@ -9,4 +10,5 @@ build({
   define: {
     "process.env.NODE_ENV": "production",
   },
+  plugins: [nodeExternalsPlugin()],
 });
